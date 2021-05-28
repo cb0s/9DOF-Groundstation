@@ -2,6 +2,7 @@ import {
 	ChannelAddress,
 	JsonSerializable
 } from '@wuespace/telestion-client-types';
+import { ExtractDefinition } from '../../../lib';
 
 export interface Connection
 	extends Record<string, JsonSerializable | undefined> {
@@ -9,6 +10,15 @@ export interface Connection
 	 * The address the datasets come from.
 	 */
 	address: ChannelAddress;
+
+	/**
+	 * The extract definition which defines
+	 * how to extract a numeric value from the received object
+	 * on the specified channel address.
+	 *
+	 * @see {@link valueExtractor}
+	 */
+	definition: ExtractDefinition;
 
 	/**
 	 * The title of the dataset.

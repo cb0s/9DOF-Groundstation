@@ -4,9 +4,8 @@ import { DOMRefValue } from '@react-types/shared';
 import { Callback } from '@wuespace/telestion-client-types';
 import { EventBusState, useEventBus } from '@wuespace/telestion-client-core';
 
-import { DataSample } from '../../../model/data-sample';
+import { valueExtractor } from '../../../lib';
 import { useSpectrumColor } from '../../hooks';
-
 import { Connection } from '../model';
 import { newStatusTimeout, updateStatusNode, StatusType } from '../lib';
 
@@ -29,6 +28,7 @@ export function useLiveData(connection: Connection): ReturnType {
 		if (eventBus) {
 			const {
 				address,
+				definition,
 				precision,
 				rps,
 				outdatedTimeWarn,
@@ -114,8 +114,10 @@ export function useLiveData(connection: Connection): ReturnType {
 				}
 			};
 
-			const handler: Callback<DataSample[]> = newSamples => {
-				value = newSamples[newSamples.length - 1].avg;
+			const extractor = valueExtractor(definition);
+
+			const handler: Callback = content => {
+				value = extractor(content);
 				lastUpdate = Date.now();
 				notify();
 			};
