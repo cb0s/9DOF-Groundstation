@@ -12,7 +12,7 @@ import {
 	useUserConfig
 } from '@wuespace/telestion-client-common';
 
-import { userConfig } from '../model/sample-user-config';
+import { userConfig } from '../model/user-config';
 import { projectWidgets } from '../widgets';
 
 import { Header } from './header';
@@ -32,7 +32,7 @@ export function App() {
 
 	return (
 		<TelestionClient
-			title="Telestion Groundstation"
+			title="9DOF-Groundstation"
 			wrapper={children => (
 				<CommonWrapper widgets={widgets}>
 					<>{children}</>
