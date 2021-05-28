@@ -7,7 +7,7 @@
 set -e
 
 # the name of the compressed image
-PROJECT_IMAGE="##REPO_NAME##"
+PROJECT_IMAGE="9DOF-Groundstation"
 # relative path to the config file
 CONFIG_PATH="config.json"
 

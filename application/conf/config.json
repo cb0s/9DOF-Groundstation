@@ -1,6 +1,6 @@
 {
   "org.telestion.configuration": {
-	"app_name": "##REPO_NAME##",
+	"app_name": "9DOF-Groundstation",
 	"verticles": [
 	  {
 		"name": "Message Logger",
