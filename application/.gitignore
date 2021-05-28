@@ -304,3 +304,6 @@ $RECYCLE.BIN/
 
 # Project Files
 modules/telestion-mavlink/src/main/messages/org/telestion/mavlink/
+
+# Tokens
+gradle.properties
