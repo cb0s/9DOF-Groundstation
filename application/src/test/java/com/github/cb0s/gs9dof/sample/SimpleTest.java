@@ -1,4 +1,4 @@
-package de.wuespace.telestion.extension.sample;
+package com.github.cb0s.gs9dof.sample;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
