@@ -1,28 +1,29 @@
-# Telestion Application Template
+# 9DOF-Groundstation
+A simple groundstation showing the data from a 9DOF-sensor.
 
-This is a template for Telestion applications.
-It helps you to set up the publishing of Telestion applications.
-Dependencies to the [main repo](https://github.com/wuespace/telestion-core) are included, too.
+## Why is it needed?
+There is a course at our university which requires a groundstation to display data from a sensor.
+This sensor is a 9DOF-sensor (9 degrees of freedom), which makes this in many ways similar to the 
+[rocketsound-project](https://github.com/wuespace/telestion-rocketsound).
 
-## Initialization
+The 9 degrees of freedom are made out of the following parts:
+ - 3 degrees for **rotation**
+ - 3 degrees for **acceleration**
+ - 3 degrees of a **magnetometer**
 
-Please go to the _Actions_ Tab in the GitHub UI and choose the `Initialize` Action.
-Then click `Run workflow` and enter your preferences like so:
+## What is part of this project?
+The 9DOF-Groundstation consists of a frontend which is based on the
+[telestion-client](https://github.com/wuespace/telestion-client/)
+and a backend based on the [telestion-core](https://github.com/wuespace/telestion-core).
 
-![Screenshot_20210427_091359](https://user-images.githubusercontent.com/52416718/116217289-01329a00-a739-11eb-811a-08bee30de8b7.png)
+You might also be interested in the documentation which as of today, is far from complete.
+It might be helpful anyway, so it might not be waste of time to take a look
+[here](https://github.com/wuespace/telestion-docs/).
 
-> It is recommended to follow [Maven Central `groupId` naming conventions](https://maven.apache.org/guides/mini/guide-naming-conventions.html),
-> e.g. beginning with the company url in reverse.
+## Will there be more features?
+You might ask yourself if there will be added more features in the future. Currently, there are no plans developing this
+package further than "just working". This however doesn't mean that *you* are not welcomed to extend it to your needs
+according to the license (MIT).
 
-Let GitHub Actions initialize your project.
-
-## Additional Changes
-
-- [ ] `conf/config.json` - adapt to fit your needs
-- [ ] `src/main/java` - add your source code
-- [ ] install the Telestion Client PSC (see [`client/README.md`](client/README.md) for further information)
-- [ ] update the README
-
-## Example Project
-
-A working example is provided in the [RocketSound repository](https://github.com/wuespace/telestion-rocketsound).
+## Cool, but how does it look?
+TODO: Images of the frontend.
