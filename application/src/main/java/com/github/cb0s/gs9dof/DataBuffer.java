@@ -14,7 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A simple buffer class which delimits the raw read data from the serial con at the occurrence of '\n'.
+ * A simple buffer class which delimits the raw read data from the serial con at the occurrence of 'C'.
  *
  * @author Cedric Boes
  * @version 29-05-2021
@@ -23,7 +23,7 @@ public class DataBuffer extends AbstractVerticle {
 	@Override
 	public void start(Promise<Void> startPromise) {
 		config = Config.get(config, config(), Configuration.class);
-		var parser = RecordParser.newDelimited("\n", handler -> {
+		var parser = RecordParser.newDelimited("C", handler -> {
 			var msg = handler.getBytes();
 			vertx.eventBus().publish(config.outAddress(), new RawPacket(msg).json());
 		});

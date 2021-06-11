@@ -1,4 +1,4 @@
-package com.github.cb0s.gs9dof.messages;
+package com.github.cb0s.gs9dof.messages.frontend;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import de.wuespace.telestion.api.message.JsonMessage;
