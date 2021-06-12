@@ -23,11 +23,12 @@ public class PacketCreator extends AbstractVerticle {
 
 		vertx.eventBus().consumer(config.inAddress(), rawMsg -> JsonMessage.on(TelecommandMsg.class, rawMsg, msg -> {
 			// Care for magic bytes
-			var count = counter.getAndUpdate(i -> i == 256 ? 0 : i == 0x42 ? 0x44 : i);
+			var count = counter.getAndUpdate(i -> i == 0x42 || i == 0x43 ? 0x44 : i++);
 
 			var rawBytes = msg.toString().getBytes(StandardCharsets.ISO_8859_1);
 
-			var header = (String.valueOf(rawBytes.length) + count +
+			// TODO: FIX! String here won't work, these must be the number bytes
+			var header = (String.valueOf(rawBytes.length) + (count & 0xFF) +
 					rawMsg.getClass().getAnnotation(UartMsgInfo.class).msgId()).getBytes(StandardCharsets.ISO_8859_1);
 
 			var raws = new byte[rawBytes.length + header.length + 2];
@@ -35,8 +36,8 @@ public class PacketCreator extends AbstractVerticle {
 			int i = 1;
 			for (var bs : new byte[][] {header, rawBytes}) {
 				for (var b : bs) {
-					count++;
 					raws[i] = b;
+					i++;
 				}
 			}
 
