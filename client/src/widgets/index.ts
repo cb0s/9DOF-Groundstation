@@ -11,11 +11,13 @@ import { widget as currentValuesWidget } from './current-values-widget';
 import { widget as pgraphWidget } from './pgraph-widget';
 import { widget as placeholderWidget } from './placeholder-widget';
 import { widget as connectionWidget } from './connection-widget';
+import { widget as dataWidget } from './data-widget';
 // IMPORT_INSERT_MARK
 
 export const projectWidgets: Widget[] = [
 	// ARRAY_FIRST_ELEMENT_INSERT_MARK
-	connectionWidget,
+	dataWidget as Widget,
+	connectionWidget as Widget,
 	placeholderWidget,
 	pgraphWidget as Widget,
 	currentValuesWidget as Widget,

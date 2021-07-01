@@ -7,50 +7,29 @@ export const Overview: Dashboard = {
 	widgets: [
 		{
 			id: 'overview-1',
-			widgetName: 'sampleWidget',
-			width: 4,
-			height: 4
+			widgetName: 'dataWidget',
+			width: 3,
+			height: 12,
+			initialProps: {
+				title: 'Data Widget'
+			}
 		},
 		{
 			id: 'overview-2',
 			widgetName: 'sampleWidget',
-			width: 6,
+			width: 9,
 			height: 4
 		},
 		{
 			id: 'overview-3',
 			widgetName: 'sampleWidget',
-			width: 2,
+			width: 9,
 			height: 4
 		},
 		{
 			id: 'overview-4',
 			widgetName: 'sampleWidget',
-			width: 6,
-			height: 4
-		},
-		{
-			id: 'overview-5',
-			widgetName: 'sampleWidget',
-			width: 6,
-			height: 4
-		},
-		{
-			id: 'overview-6',
-			widgetName: 'sampleWidget',
-			width: 3,
-			height: 4
-		},
-		{
-			id: 'overview-7',
-			widgetName: 'sampleWidget',
-			width: 5,
-			height: 4
-		},
-		{
-			id: 'overview-8',
-			widgetName: 'sampleWidget',
-			width: 4,
+			width: 9,
 			height: 4
 		}
 	]
