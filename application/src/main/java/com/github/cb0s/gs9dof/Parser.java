@@ -12,7 +12,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
 import java.util.Arrays;
 
 public class Parser extends AbstractVerticle {
@@ -52,6 +51,8 @@ public class Parser extends AbstractVerticle {
 			case 0x13:
 				parseAliveSignal(fields);
 				break;
+			default:
+				logger.info("Unsupported message received (id={})", msg.header().msgId());
 			}
 		}));
 

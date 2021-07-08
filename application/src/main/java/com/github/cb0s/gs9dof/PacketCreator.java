@@ -12,6 +12,7 @@ import io.vertx.core.Promise;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -27,9 +28,9 @@ public class PacketCreator extends AbstractVerticle {
 
 			var rawBytes = msg.toString().getBytes(StandardCharsets.ISO_8859_1);
 
-			// TODO: FIX! String here won't work, these must be the number bytes
-			var header = (String.valueOf(rawBytes.length) + (count & 0xFF) +
-					rawMsg.getClass().getAnnotation(UartMsgInfo.class).msgId()).getBytes(StandardCharsets.ISO_8859_1);
+			var buffer = ByteBuffer.allocate(3);
+			buffer.put((byte) rawBytes.length).put((byte) count).put((byte) rawMsg.getClass().getAnnotation(UartMsgInfo.class).msgId());
+			var header = buffer.array();
 
 			var raws = new byte[rawBytes.length + header.length + 2];
 
