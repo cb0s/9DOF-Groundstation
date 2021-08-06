@@ -18,9 +18,9 @@ public class TelcomHandler extends AbstractVerticle {
 		this.config = Config.get(this.config, config(), Configuration.class);
 
 		vertx.eventBus().consumer(this.config.inAddress(), raw -> {
-			if (!JsonMessage.on(UpdateCom.class, raw, msg -> {
-
-			})) {
+			if (!JsonMessage.on(UpdateCom.class,
+					raw,
+					msg -> logger.info("Changing the interface type is not implemented, yet!"))) {
 				JsonMessage.on(UpdateStateCmd.class, raw, msg -> {
 					var updateState = new ChangeState(msg.state());
 					vertx.eventBus().publish(config.outAddress(), updateState.json());

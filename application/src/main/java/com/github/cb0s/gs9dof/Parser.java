@@ -25,7 +25,7 @@ public class Parser extends AbstractVerticle {
 					.count();
 
 			if (TelemetryMsg.TELEMETRY_INDEX.length < annoCount) {
-				logger.info("Not all Telemetry-Msgs have the required UartMsgInfo - wrong setup");
+				logger.error("Not all Telemetry-Msgs have the required UartMsgInfo - wrong setup");
 				return;
 			}
 
@@ -193,7 +193,6 @@ public class Parser extends AbstractVerticle {
 
 		vertx.eventBus().publish(config.outAddress(), aliveData.json());
 	}
-
 
 	private Configuration config;
 	private final static Logger logger = LoggerFactory.getLogger(Parser.class);
